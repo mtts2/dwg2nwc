@@ -1,0 +1,12 @@
+_dynmode 0
+_filedia 0
+_PLANTINSULATIONDISPLAY off
+_PLANTINSULATIONDISPLAY on
+
+
+layon
+UnIsolateObjects
+nwcout
+
+_filedia 1
+_quit y
