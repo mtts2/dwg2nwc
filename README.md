@@ -14,7 +14,7 @@ or the nwc file is not exist.
 ## Install
 Download/Save the following files
 - poweshell script file: dwg2nwc.ps1
-- AuroCAD script file : dwg2nwc.scr
+- AutoCAD script file : dwg2nwc.scr
 
 Have the files in the same directory
 
