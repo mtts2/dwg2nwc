@@ -1,5 +1,5 @@
 # dwg2nwc
-Create nwc files from dwg files under the specified folder with nwcout command.
+Create nwc files from dwg files under the specified folder by the nwcout command.
 
 ## Features
 Like the "make" command,
