@@ -30,12 +30,12 @@ param (
     [Parameter()]
     #enter include file name (`,`-separated)
     [string[]]
-    $includeFiles  = "*.dwg",
+    $includeFiles = "*.dwg",
 
     [Parameter()]
     #enter exclude file name
     [string[]]
-    $excludeFiles  = "*recover*",
+    $excludeFiles = "*recover*",
 
     [Parameter()]
     #enter exclude dir name (`,`-separated)
@@ -65,15 +65,21 @@ function Main {
     $files = Get-ChildItem  -Recurse -path $dwgDir -Include $includeFiles -Exclude $excludeFiles 
     $files = $files | Where-Object Name -Like "*.dwg"
 
-    if($excludeDirs.Count -ne 0)
-    {
-        foreach($excludeDir in $excludeDirs )
-        {
+    if ($excludeDirs.Count -ne 0) {
+        foreach ($excludeDir in $excludeDirs ) {
             $excludeDir = "*$excludeDir*"
             $files = $files | Where-Object FullName -NotLike $excludeDir
         }
     }
 
+    # show the specified file list
+    Write-Host("---Specified files---")
+    Write-Host($files.Length.toString() + " files")
+    foreach ($dwgfilepath  in $files) {
+        write-host("$dwgfilepath")
+    }
+    Write-Host("--------------")
+    
     foreach ($dwgfilepath  in $files) {
         Write-Host("dwg to nwc :$dwgfilepath ")
 
@@ -119,7 +125,7 @@ function Start-Acad {
     Write-Host ("$acad $acadArg")
     Write-Host ("WorkingDirectory :$WorkingDirectory")
 
-    if($test){return}
+    if ($test) { return }
     Start-Process -FilePath $acad -ArgumentList $acadArg -WorkingDirectory $WorkingDirectory
 }
 
